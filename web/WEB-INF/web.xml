@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : web.xml
+    Created on : April 20, 2014, 5:17 PM
+    Author     : Sarip
+    Description:
+        Purpose of the document follows.
+-->
+
+<web-app version="3.0" 
+         xmlns="http://java.sun.com/xml/ns/javaee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+                             http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+<context-param>
+<param-name>contextConfigLocation</param-name>
+    <param-value>
+     /WEB-INF/applicationContext.xml    
+     /WEB-INF/serverContext.xml
+    </param-value>
+</context-param>
+<listener>
+<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+
+<servlet>
+<servlet-name>appServiceHttpInvoker</servlet-name>
+<servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>appServiceHttpInvoker</servlet-name>
+<url-pattern>/AppService</url-pattern>
+</servlet-mapping>
+
+  <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+
+</web-app>
+
